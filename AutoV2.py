@@ -5,8 +5,9 @@ import Var
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 
-# Extremely basic automation script for filling out onlineform with data from excel
-# Small sleep timers since onlineform was slow
+# Extremely basic automation script for filling out onlineforms with data from excel
+# This version is fully automatic. V1 had pause/confirmation to allow for error checks.
+# Sleep timers since onlineform is slow
 # It is ugly, but it works :)
  
 driver = webdriver.Chrome(options=Var.c_options)
@@ -87,7 +88,7 @@ for row in range(780, sheet.max_row+1):
     Var.amount2.send_keys("0")
     Var.amount3.send_keys("0")
     nextPage()
-    time.sleep(0.5) # Seems to always need a bit of waiting
+    time.sleep(0.5) # Short wait to avoid double click
     nextPage()      # If page still has not loaded the function also waits
     time.sleep(0.5) 
     Var.formRefresh
